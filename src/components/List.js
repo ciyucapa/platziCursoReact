@@ -1,4 +1,4 @@
-import {Item} from './commons/Item';
+import { Item } from "./commons/item/Item";
 
 const list = [
     {id: 1, text: "Estudiar platzi", completed: false},

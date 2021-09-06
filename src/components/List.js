@@ -1,4 +1,4 @@
-import { Item } from "./commons/item/Item";
+import Item from './commons/item';
 
 const list = [
     {id: 1, text: "Estudiar platzi", completed: false},
@@ -6,7 +6,7 @@ const list = [
     {id: 3, text: "Jugar con sarai", completed: false}
 ]
 
-const List = (props) => {
+const List = () => {
     return (
       <>
         {list.map(listas => (
@@ -16,4 +16,4 @@ const List = (props) => {
     );
   };
   
-  export {List};
+  export default List;

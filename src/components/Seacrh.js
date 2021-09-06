@@ -1,9 +1,23 @@
-const Search = () => {
+import PropTypes from 'prop-types';
+
+import InputField from '../components/commons/input';
+
+const Search = (props) => {
     return (
       <>
-        <input placeholder="Buscador..." />
+        <InputField placeholder="Buscador..." type="text" /* value={props.search} onChange={props.changeSearch}*//>
       </>
     );
   };
   
-  export {Search};
+Search.propTypes = {
+  search: PropTypes.string,
+  changeSearch: PropTypes.func,
+};
+
+Search.defaultProps = {
+  search: '',
+  changeSearch: () => {},
+};
+
+export default Search;

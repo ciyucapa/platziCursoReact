@@ -6,4 +6,4 @@ const Counter = () => {
     );
   };
   
-  export {Counter};
+  export default Counter;

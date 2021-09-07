@@ -1,10 +1,13 @@
 import {useCallback, useMemo, useState} from 'react';
+//import {useHistory} from 'react-router-dom';
 
 const useFormCreatesListTask = () => {
-    const [task, setTask] = useState('');
+   // let history = useHistory();
+    const [task, setTask] = useState(''); 
     const [newsListTask, setNewsListTask] = useState([
-        {name: '', done: false}
-    ]);
+        {name: 'Tomar Agua'},
+        {name: 'Tomar Cafe'}
+    ]); 
 
     const changeTask = (event) => {
         setTask(event.target.value);
@@ -13,13 +16,19 @@ const useFormCreatesListTask = () => {
     const onClick = () => {
         updateListTask(task)
         setTask('');
+        /*history.push('/show')*/
     };
 
     const updateListTask = useCallback((task) => {
         if(!newsListTask.find( t => t.name === task)) {
             setNewsListTask([...newsListTask, {name:task, done:false}])
         };
-    }, [task])
+    }, [newsListTask])
+
+    const totalTask = useMemo(() => {
+        const value = newsListTask.length
+        return value
+    }, [newsListTask]);
 
     const isDisabled = useMemo(() => {
         return task
@@ -28,9 +37,10 @@ const useFormCreatesListTask = () => {
     return {
         task,
         newsListTask,
+        isDisabled,
         changeTask,
         onClick,
-        isDisabled,
+        totalTask,
     };
 };
 

@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 
 import InputField from '../../components/commons/input';
 import Button from '../../components/commons/button';
-import {BoxInput, BoxButton } from '../../components/styleComponents';
+import {BoxInput, Container } from '../../components/styleComponents';
+import SearchTask from '../../components/searchTask';
+import Counter from '../../components/Counter';
 
 const FormCreates = (props) => (
-    <div>
+    <Container>
         <h1>AGREGAR TAREAS</h1>
         <BoxInput>
             <InputField 
@@ -14,14 +16,12 @@ const FormCreates = (props) => (
                 value={props.task} 
                 onChange={props.changeTask} 
             />
-        </BoxInput>
-        <BoxButton>
             <Button 
                 text="Agregar Tarea" 
                 onClick={props.onClick}
                 disabled={!props.isDisabled}
             />
-        </BoxButton>
+        </BoxInput>
         <div>
         <h1>Lista de tareas por hacer</h1>
         {
@@ -31,8 +31,9 @@ const FormCreates = (props) => (
                 </div>
             ))
         }
-    </div>
-    </div>
+        </div>
+        <SearchTask/>
+    </Container>
 );
 
 FormCreates.propTypes = {

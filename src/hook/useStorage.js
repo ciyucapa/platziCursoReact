@@ -1,4 +1,4 @@
-/*import {useState} from 'react';
+import {useState} from 'react';
 
 const useStorage = () => {
     const [state, setState] = useState({
@@ -20,4 +20,4 @@ const useStorage = () => {
     };
 };
 
-export default useStorage;*/
+export default useStorage;

@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 
-import InputField from '../components/commons/input';
+import InputField from '../commons/input';
 
 const Search = (props) => {
     return (
       <>
-        <InputField placeholder="Buscador..." type="text" /* value={props.search} onChange={props.changeSearch}*//>
+        <h1>Buscador de Tareas</h1>
+        <InputField 
+          placeholder="Buscador..." 
+          type="text" 
+          value={props.search} 
+          onChange={props.changeSearch}
+        />
       </>
     );
   };

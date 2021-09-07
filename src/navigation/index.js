@@ -6,12 +6,16 @@ import {
 
 import Welcome from '../scenes/welcome';
 import CreateTask from '../scenes/createtask';
+import ShowList from '../scenes/listTask';
 
 const Navigation = () => (
     <Router>
         <Switch>
             <Route path="/create" >
                 <CreateTask/>
+            </Route>
+            <Route path="/show" >
+                <ShowList/>
             </Route>
             <Route path="/" >
                 <Welcome/>

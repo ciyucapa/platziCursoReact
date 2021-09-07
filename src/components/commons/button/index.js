@@ -1,12 +1,13 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import {ButtonStyle} from '../../styleComponents';
 
 const Button = (props) => (
-    <button 
+    <ButtonStyle 
         onClick={props.onClick} 
         disabled={props.disabled} 
     >
         {props.text}
-    </button>
+    </ButtonStyle>
 );
 
 Button.propTypes = {

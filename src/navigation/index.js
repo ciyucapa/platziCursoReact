@@ -4,14 +4,14 @@ import {
     Route,
   } from "react-router-dom";
 
-import Welcome from "../scenes/welcome";
-import Counter from '../components/Counter';
+import Welcome from '../scenes/welcome';
+import CreateTask from '../scenes/createtask';
 
 const Navigation = () => (
     <Router>
         <Switch>
-            <Route path="/counter" >
-                <Counter/>
+            <Route path="/create" >
+                <CreateTask/>
             </Route>
             <Route path="/" >
                 <Welcome/>

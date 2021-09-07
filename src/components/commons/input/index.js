@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 
+import {Input} from '../../styleComponents';
+
 const InputField = (props) => (
-    <input 
+    <Input 
         placeholder={props.placeholder} 
         type={props.type} 
         value={props.value} 

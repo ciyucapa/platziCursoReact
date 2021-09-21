@@ -1,26 +1,31 @@
 import PropTypes from 'prop-types';
 
 import {Assets} from '../../utils/assents'
-import {ContainerList, ImageList } from '../../components/styleComponents';
+import {BoxList, ImageList, BoxListTask } from '../../components/styleComponents';
 
 const ListTask = (props) => (
-    <>
-        {props.newsListTask.map((task) => (
-            <ContainerList>
-                <ImageList src={Assets.image.checked}/>
-                <div key={task.name}>{task.name}</div>
-            </ContainerList>
-        ) )
-        }
-    </>
+    <BoxListTask>
+        <h1>Lista de Tareas</h1>
+        <div>
+            {props.newsListTask.map((task) => (
+                <BoxList>
+                    <div key={task.text}>{task.text}</div>
+                    <ImageList src={Assets.image.closet} onClick={props.deleteListTask} />
+                </BoxList>
+            ) )
+            }
+        </div>
+    </BoxListTask>
 );
 
 ListTask.propTypes = {
     newsListTask: PropTypes.array,
+    deleteListTask: PropTypes.func,
 };
 
 ListTask.defaultProps = {
     newsListTask:[],
+    deleteListTask: () => {},
 };
 
 export default ListTask;

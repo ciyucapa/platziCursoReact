@@ -4,7 +4,7 @@ import InputField from '../../components/commons/input';
 import Button from '../../components/commons/button';
 import {BoxInput, Container } from '../../components/styleComponents';
 import SearchTask from '../../components/searchTask';
-import Counter from '../../components/Counter';
+import ShowList from '../listTask';
 
 const FormCreates = (props) => (
     <Container>
@@ -26,13 +26,12 @@ const FormCreates = (props) => (
         <h1>Lista de tareas por hacer</h1>
         {
             props.newsListTask.map((task) => (
-                <div key={task.name} >
-                    <div>{task.name}</div>
+                <div key={task.text} >
+                    <div>{task.text}</div>
                 </div>
             ))
         }
         </div>
-        <SearchTask/>
     </Container>
 );
 

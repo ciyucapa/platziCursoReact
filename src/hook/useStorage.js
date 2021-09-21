@@ -1,23 +1,53 @@
-import {useState} from 'react';
+import {useCallback, useState, useEffect} from 'react';
 
-const useStorage = () => {
+const useStorage = (key, defaultValue) => {
     const [state, setState] = useState({
-        hydrate: false,
+        hydrated: false,
         storageValue: defaultValue,
     });
     const {hydrate, storageValue} = state
 
-    const getStorageValue = () => {
-        let value = defaultValue
-    };
+    const getStorageValue = useCallback(() => {
+        let value = defaultValue;
+        let fromStorage = null;
+        try {
+            fromStorage = localStorage.getItem(key);
+        } catch (e) {} finally {
+            if(fromStorage){
+                value= JSON.parse(fromStorage)
+            }
+            setState({
+                hydrated: true,
+                storageValue: value,
+            })
+        }
+    }, [key, defaultValue])
 
-    const updateStorageValue = () => {
+    const updateStorageValue = useCallback((newValue) => {
+        try {
+            if (newValue === null) {
+                localStorage.removeItem(key);
+                setState({
+                    hydrated: true,
+                    storageValue: defaultValue,
+                })
+            } else {
+                const newFiedValue = JSON.stringify(newValue);
+                localStorage.setItem(key, newFiedValue);
+                getStorageValue();
+            }
+        } catch (e) {}
+    }, [key, defaultValue, getStorageValue]);
 
-    };
+    useEffect(() => {
+        getStorageValue();
+    }, [getStorageValue]);
 
-    return {
-
-    };
+    return [ 
+        storageValue,
+        updateStorageValue,
+        hydrated,
+    ];
 };
 
 export default useStorage;

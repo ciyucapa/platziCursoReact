@@ -2,9 +2,8 @@ import ListTask from './listTask';
 import useFormCreatesListTask from '../../hook/useFormCreatesListTask';
 
 const ShowList = () => {
-    const {newsListTask} = useFormCreatesListTask();
-    console.log(newsListTask)
-    return <ListTask newsListTask={newsListTask} />
+    const {newsListTask, deleteListTask} = useFormCreatesListTask();
+    return <ListTask newsListTask={newsListTask} deleteListTask={deleteListTask}/>
 };
 
 export default ShowList;

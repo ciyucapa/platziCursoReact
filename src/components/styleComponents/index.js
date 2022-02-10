@@ -11,7 +11,7 @@ export const Input = styled.input`
 background-color: #fff;
 padding: 5px 10px;
 border-radius: 25px;
-border: 1px solid transparent;
+border: 1px solid black;
 outline: none;
 margin: 0 10px;
 `
@@ -65,9 +65,22 @@ background-color: #fff;
 border-radius: 25px;
 padding: 20px 50px;
 margin: auto;
+border: 1px solid transparent;
+box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+
 `
 
 export const BoxButton = styled.div`
 display: flex;
 flex-direction: column;
+margin: 20px 0;
+padding: 10px 0
+`
+
+/*SearchList*/
+export const SearchContainer = styled.div`
+display: flex;
+flex-direction: column;
+margin: 20px 0;
+padding: 5px 0
 `

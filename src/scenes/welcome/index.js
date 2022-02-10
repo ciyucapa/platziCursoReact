@@ -14,10 +14,6 @@ const onCreate = () => {
   history.push('/create')
 };
 
-const onEdit = () => {
-  history.push('/edit')
-};
-
   return(
     <ContainerWelcome>
       <h1>Bienvenidos</h1>
@@ -25,7 +21,6 @@ const onEdit = () => {
         <span> ¿Que quieres hacer? </span>
         <div>
           <Button text="Crear Tarea" onClick={onCreate}/>
-          <Button text="Editar Tarea" onClick={onEdit}/>
         </div>
       </BoxButton>
       <SearchTask/>

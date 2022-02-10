@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import InputField from '../../components/commons/input';
 import Button from '../../components/commons/button';
 import {BoxInput, Container } from '../../components/styleComponents';
-import SearchTask from '../../components/searchTask';
-import ShowList from '../listTask';
 
 const FormCreates = (props) => (
     <Container>
@@ -13,7 +11,7 @@ const FormCreates = (props) => (
             <InputField 
                 type="text" 
                 placeholder="Añade tarea...." 
-                value={props.task} 
+                value={props.valueTask} 
                 onChange={props.changeTask} 
             />
             <Button 
@@ -30,21 +28,21 @@ const FormCreates = (props) => (
                     <div>{task.text}</div>
                 </div>
             ))
-        }
+            }
         </div>
     </Container>
 );
 
 FormCreates.propTypes = {
-    task: PropTypes.string,
-    newsListTask: PropTypes.string,
+    valueTask: PropTypes.string,
+    newsListTask: PropTypes.array,
     changeTask: PropTypes.func,
     onClick: PropTypes.func,
 };
 
 FormCreates.defaultProps = {
-    task: '',
-    newsListTask: '',
+    valueTask: '',
+    newsListTask: [],
     changeTask: () => {},
     onClick: () => {},
 };

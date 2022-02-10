@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import useFormCreatesListTask from './useFormCreatesListTask';
 
 const useSearch = () => {
+    const {newsListTask} = useFormCreatesListTask();
     const [search, setSearch] = useState('')
 
     const changeSearch = (event) => {
@@ -8,6 +10,7 @@ const useSearch = () => {
     };
 
     return {
+        newsListTask,
         search,
         changeSearch,
     };

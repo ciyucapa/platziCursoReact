@@ -8,8 +8,8 @@ const ListTask = (props) => (
         <h1>Lista de Tareas</h1>
         <div>
             {props.newsListTask.map((task) => (
-                <BoxList>
-                    <div key={task.text}>{task.text}</div>
+                <BoxList key={task.text}>
+                    <div>{task.text}</div>
                     <ImageList src={Assets.image.closet} onClick={props.deleteListTask} />
                 </BoxList>
             ) )

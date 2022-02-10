@@ -1,53 +1,28 @@
-import {useCallback, useState, useEffect} from 'react';
+import {useState} from 'react';
 
-const useStorage = (key, defaultValue) => {
-    const [state, setState] = useState({
-        hydrated: false,
-        storageValue: defaultValue,
-    });
-    const {hydrate, storageValue} = state
-
-    const getStorageValue = useCallback(() => {
-        let value = defaultValue;
-        let fromStorage = null;
+const useLocalStorage = (key, initialValue) => {
+    const [valueStorage, setValueStorage] = useState(() => {
         try {
-            fromStorage = localStorage.getItem(key);
-        } catch (e) {} finally {
-            if(fromStorage){
-                value= JSON.parse(fromStorage)
-            }
-            setState({
-                hydrated: true,
-                storageValue: value,
-            })
+            const item = window.localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue
+        } catch (error) {
+            return initialValue
         }
-    }, [key, defaultValue])
+    });
 
-    const updateStorageValue = useCallback((newValue) => {
+    const setLocalStorage = (value) => {
         try {
-            if (newValue === null) {
-                localStorage.removeItem(key);
-                setState({
-                    hydrated: true,
-                    storageValue: defaultValue,
-                })
-            } else {
-                const newFiedValue = JSON.stringify(newValue);
-                localStorage.setItem(key, newFiedValue);
-                getStorageValue();
-            }
-        } catch (e) {}
-    }, [key, defaultValue, getStorageValue]);
+            window.localStorage.setItem(key, JSON.stringify(value))
+            setValueStorage(value)
+        } catch (error) {
 
-    useEffect(() => {
-        getStorageValue();
-    }, [getStorageValue]);
-
+        }
+    }
+    
     return [ 
-        storageValue,
-        updateStorageValue,
-        hydrated,
+        valueStorage,
+        setLocalStorage
     ];
 };
 
-export default useStorage;
+export default useLocalStorage;

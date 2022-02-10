@@ -4,24 +4,24 @@ import {
     Route,
   } from "react-router-dom";
 
-import Welcome from '../scenes/welcome';
 import CreateTask from '../scenes/createtask';
-import ShowList from '../scenes/listTask';
+import ListTaskContainer from '../scenes/listTask';
+import Header from "../components/Header.js";
+import {ContextProvider} from '../context/Context'
 
 const Navigation = () => (
-    <Router>
-        <Switch>
-            <Route path="/create" >
-                <CreateTask/>
-            </Route>
-            <Route path="/show" >
-                <ShowList/>
-            </Route>
-            <Route path="/" >
-                <Welcome/>
-            </Route>
-        </Switch>
-    </Router>
+    <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+        <Router>
+            <ContextProvider>
+                <Header/>
+                <Switch>
+                    <Route path="/" component={ListTaskContainer} exact />
+                    <Route path="/create" component={CreateTask} />
+                    <Route path="/edit:id" component={CreateTask} />
+                </Switch>
+            </ContextProvider>
+        </Router>
+    </div>
 );
 
 export default Navigation;

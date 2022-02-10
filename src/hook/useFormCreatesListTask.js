@@ -1,18 +1,30 @@
-import {useState} from 'react';
-import useLocalStorage from './useStorage';
+import {useState, useContext} from 'react';
+//import useLocalStorage from './useStorage';
+import {Context} from '../context/Context'
 
 const useFormCreatesListTask = () => {
-    const [valueTask, setValueStask] = useLocalStorage('text', '')
-    const [newsListTask, setNewsListTask] = useState([
+    //const [valueTask, setValueStask] = useLocalStorage('text', '')
+    const {addTask, deleteTask} = useContext(Context);
+    const [task, setTask] = useState({
+        title: '',
+        description: ''
+    })
+   /* const [newsListTask, setNewsListTask] = useState([
         {text: 'beber agua'},
         {text: 'tomar cafe'}
-    ]); 
+    ]); */
     
-    const changeTask = (event) => {
-        setValueStask(event.target.value);
+    const changeTask = (e) => {
+        setTask({...task, [e.target.name]: e.target.value});
     };
 
-    const onClick = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(task)
+        addTask(task);
+    };
+
+  /*  const onClick = () => {
         updateListTask(valueTask)
         setValueStask('');
     };
@@ -29,26 +41,28 @@ const useFormCreatesListTask = () => {
             newsListTask.splice(newsListTask, 1);
             setNewsListTask(newList);
         }
-    }
+    }*/
 
-    const totalTask = () => {
+   /* const totalTask = () => {
         const value = newsListTask.length
         return value;
     }
-
+*/
     const isDisabled = () => {
-        return valueTask
+        return task
+    }
+
+    const deleteTask2 = (id) => {
+        deleteTask(id)
     }
 
 
     return {
-        valueTask,
-        newsListTask,
-        totalTask,
+        task,
+        deleteTask2,
         isDisabled,
         changeTask,
-        onClick,
-        deleteListTask,
+        handleSubmit
     };
 };
 

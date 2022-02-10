@@ -1,9 +1,12 @@
 import ListTask from './listTask';
-import useFormCreatesListTask from '../../hook/useFormCreatesListTask';
+import {Context} from '../../context/Context';
+import { useContext } from 'react';
 
-const ShowList = () => {
-    const {newsListTask, deleteListTask} = useFormCreatesListTask();
-    return <ListTask newsListTask={newsListTask} deleteListTask={deleteListTask}/>
+const ListTaskContainer = () => {
+    const {tasks} = useContext(Context);
+    const contexto = useContext(Context);
+    console.log("contexto", contexto)
+    return <ListTask task={tasks} />
 };
 
-export default ShowList;
+export default ListTaskContainer;

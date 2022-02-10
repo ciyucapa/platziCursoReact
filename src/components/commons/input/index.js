@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
 
-import {Input} from '../../styleComponents';
-
 const InputField = (props) => (
-    <Input 
+    <input 
         placeholder={props.placeholder} 
         type={props.type} 
         value={props.value} 
         onChange={props.onChange} 
+        name={props.title}
     />
 );
 
@@ -15,11 +14,13 @@ InputField.propTypes = {
     placeholder: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string,
+    title: PropTypes.string,
     onChange: PropTypes.func,
 };
 
 InputField.defaultProps = {
     placeholder: '',
+    title: '',
     type: '',
     value: '',
     onChange: () => {},

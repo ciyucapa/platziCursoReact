@@ -2,6 +2,9 @@
 
 crud de tareas 
 
+![crud](https://github.com/ciyucapa/platziCursoReact/blob/main/src/utils/crud1.PNG)
+![crud](https://github.com/ciyucapa/platziCursoReact/blob/main/src/utils/credu2.PNG)
+
 Permite al usuario Crear, Editar, y Borrar una tarea.
 
 ### Dependencias

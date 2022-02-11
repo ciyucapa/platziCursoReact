@@ -1,30 +1,30 @@
 import PropTypes from 'prop-types';
-import {Container } from '../../components/styleComponents';
+import {CreateContainer} from '../../components/styleComponents';
 
 const FormCreates = (props) => (
-    <Container>
-        <h2>AGREGAR TAREAS</h2>
+    <CreateContainer>
+        <h2>{props.task.id ? 'Edit Task' : 'Create Task'}</h2>
         <form onSubmit={props.handleSubmit}>
             <input
                 name="title"
                 type="text" 
-                placeholder="Añade tarea...." 
-                onChange={props.changeTask} 
+                onChange={props.changeTask}
+                value={props.task.title}
+                placeholder="Create task...." 
             />
             <div>
                 <textarea 
                     name="description"
                     rows="2"
-                    placeholder="Escribe la descripcion"
+                    placeholder="Describe the description"
                     onChange={props.changeTask}
+                    value={props.task.description}
                 >
                 </textarea>
             </div>
-            <div>
-                <button disabled={!props.isDisabled}>AGREGAR TAREA</button>
-            </div>
+                <button>{props.task.id ? 'Edit' : 'Create'}</button>
         </form>
-    </Container>
+    </CreateContainer>
 );
 
 FormCreates.propTypes = {

@@ -10,18 +10,16 @@ import Header from "../components/Header.js";
 import {ContextProvider} from '../context/Context'
 
 const Navigation = () => (
-    <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+    <ContextProvider>
         <Router>
-            <ContextProvider>
-                <Header/>
-                <Switch>
-                    <Route path="/" component={ListTaskContainer} exact />
-                    <Route path="/create" component={CreateTask} />
-                    <Route path="/edit:id" component={CreateTask} />
-                </Switch>
-            </ContextProvider>
+            <Header/>
+            <Switch>
+                <Route path="/" component={ListTaskContainer} exact />
+                <Route path="/create" component={CreateTask} />
+                <Route path="/edit:id" component={CreateTask} />
+            </Switch>
         </Router>
-    </div>
+    </ContextProvider>
 );
 
 export default Navigation;

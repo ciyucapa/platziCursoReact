@@ -1,18 +1,25 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 //import useLocalStorage from './useStorage';
-import {Context} from '../context/Context'
+import {Context} from '../context/Context';
+import {useHistory, useParams} from 'react-router-dom'
 
 const useFormCreatesListTask = () => {
     //const [valueTask, setValueStask] = useLocalStorage('text', '')
-    const {addTask, deleteTask} = useContext(Context);
+    const history = useHistory();
+    const params = useParams();
+    const {addTask, deleteTask, tasks, updateTask} = useContext(Context);
     const [task, setTask] = useState({
+        id: '',
         title: '',
         description: ''
     })
-   /* const [newsListTask, setNewsListTask] = useState([
-        {text: 'beber agua'},
-        {text: 'tomar cafe'}
-    ]); */
+
+    useEffect(() => {
+        const tareaencontrada = tasks.find(index => index.id === params.id);
+        if(tareaencontrada){
+            setTask(tareaencontrada)
+        }
+    }, [params, tasks]);
     
     const changeTask = (e) => {
         setTask({...task, [e.target.name]: e.target.value});
@@ -20,46 +27,26 @@ const useFormCreatesListTask = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(task)
-        addTask(task);
-    };
-
-  /*  const onClick = () => {
-        updateListTask(valueTask)
-        setValueStask('');
-    };
-
-    const updateListTask = (valueTask) => {
-        if(!newsListTask.find( t => t.text === valueTask)) {
-            setNewsListTask([...newsListTask, {text:valueTask}]);
-        };
-    }
-    
-     const deleteListTask = (text) => {
-        if(newsListTask.findIndex(t => t.text === text)) {
-            const newList = [...newsListTask];
-            newsListTask.splice(newsListTask, 1);
-            setNewsListTask(newList);
+        if(task.id) {
+            console.log(updateTask(task))
+            updateTask(task)
+        } else {
+            addTask(task);
         }
-    }*/
+        history.push('/')
+    };
 
-   /* const totalTask = () => {
-        const value = newsListTask.length
-        return value;
-    }
-*/
+    const deleteTasks = (id) => {
+        deleteTask(id);
+    };
+
     const isDisabled = () => {
         return task
-    }
-
-    const deleteTask2 = (id) => {
-        deleteTask(id)
-    }
-
+    };
 
     return {
+        deleteTasks,
         task,
-        deleteTask2,
         isDisabled,
         changeTask,
         handleSubmit

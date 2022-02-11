@@ -1,34 +1,41 @@
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {ListarContainer} from '../../components/styleComponents';
 
 const ListTask = (props) => (
-    <div>
-        {props.task.map((task) => (
-            <div style={{padding: 10, backgroundColor: "red", display: "flex", marginBottom: "20px", flexDirection: "row", color: "white", justifyContent: "space-between"}} key={task.id}>
+    <ListarContainer>
+        {props.tasks.map((task) => (
+            <section key={task.id}>
                 <div>
-                    <h3>{task.id}</h3>
-                    <h3>{task.title}</h3>
-                    <div>{task.description}</div>
+                    <table>
+                        <tr>
+                            <td>Id</td>
+                            <td>Title</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>{task.id}</td>
+                            <td>{task.title}</td>
+                            <td>{task.description}</td>
+                        </tr>
+                    </table>
                 </div>
-                <div>
-                    <Link to={`/edit${task.id}`} ><button>Editar</button></Link>
-                    <button onClick={props.deleteTask2(task.id)}>Borrar</button>
-                </div>
-                
-            </div>
+                    <Link to={`/edit${task.id}`}><button>Edit</button></Link>
+                    <button onClick={() => props.deleteTask(task.id)}>Delete</button>
+            </section>
         ) )
         }
-    </div>
+    </ListarContainer>
 );
 
 ListTask.propTypes = {
-    task: PropTypes.array,
-    deleteTask2: PropTypes.func,
+    tasks: PropTypes.array,
+    deleteTask: PropTypes.func,
 };
 
 ListTask.defaultProps = {
-    task:[],
-    deleteTask2: () => {}
+    tasks:[],
+    deleteTask: () => {}
 };
 
 export default ListTask;

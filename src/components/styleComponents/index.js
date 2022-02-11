@@ -1,81 +1,158 @@
 import styled from 'styled-components'
 
-export const ButtonStyle = styled.button`
-padding: 5px 10px;
-border-radius: 25px;
-border: 1px solid;
-margin: 0 10px;
-`
-
-export const Input = styled.input`
+/*HEADER*/
+export const Navbar = styled.div`
 background-color: #fff;
-padding: 5px 10px;
-border-radius: 25px;
-border: 1px solid black;
-outline: none;
-margin: 0 10px;
-`
-
-export const BoxInput = styled.div`
-margin-top: 20px;
-margin-bottom: 20px;
-`
-
-export const Container = styled.div`
+width: 100%;
+padding: 10px 0;
 display: flex;
-flex-direction: column;
-align-items: center;
-padding: 10px;
+justify-content: space-around;
+color: black;
+height: 40px;
+
+a {
+    text-decoration: none
+}
+
+p {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+div {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+div:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
 `
-/*LISTA DE TAREAS*/
+/*HEADER*/
 
-export const BoxList = styled.div`
-display: flex;
-flex-direction: row;
-padding: 10px;
-margin: 10px;
-background-color: #fff;
-border-radius: 20px;
-border: 1px solid transparent;
-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-justify-content: space-between;
+/*CREATE TASK*/
+export const CreateContainer = styled.div`
+    background-color: gray;
+    padding: 40px 0;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px auto;
+    border-radius: 20px;
+    text-align: center;
+
+    h2 {
+        color: white;
+        font-size: 40px
+    }
+
+    form {
+        margin-top: 10px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 20px;
+    }
+
+    input, textarea {
+        padding: 5px;
+        border: none;
+        background-color: #C19B93;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        outline: none;
+        width: 200px;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: white;
+        font-size: 15px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #B19690 ;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #F4DBD6;
+        font-size: 20px;
+    }
+
+    button:hover {
+        background-color: #CE968B ;
+        color: #FAF0EE;
+    }
+
+`
+/*CREATE TASK*/
+
+/*LISTAR TASK*/
+
+export const ListarContainer = styled.div`
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    section {
+        background-color: gray;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        padding: 10px 20px;
+        justify-content: space-around;
+        border-radius: 10px;
+        margin-bottom: 30px;
+
+    }
+
+    div {
+        background-color: #B88A81;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 10px;
+        border-radius: 10px;
+        color: #F4DBD6; 
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #B19690 ;
+        border: none;
+        width: 100%;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #F4DBD6;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    button:hover {
+        background-color: #CE968B ;
+        color: #FAF0EE;
+    }
+
+    td {
+        background: white;
+        width: 30px;
+        padding: 5px;
+        color: black;
+    }
 `
 
-export const ImageList = styled.img`
-width: 15px;
-heigth: 15px;
-margin-right: 10px;
-margin-left: 10px;
-`
-
-export const BoxListTask = styled.div`
-
-padding: 20px;
-border-radius: 25px;
-display: flex;
-flex-direction: column;
-box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.2);
-`
-/*scene Welcome*/
-
-export const ContainerWelcome = styled.div`
-text-align: center;
-align-items: center;
-background-color: #fff;
-border-radius: 25px;
-padding: 20px 50px;
-margin: auto;
-border: 1px solid transparent;
-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-
-`
-
-export const BoxButton = styled.div`
-display: flex;
-flex-direction: column;
-margin: 20px 0;
-padding: 10px 0
-`
 
 /*SearchList*/
 export const SearchContainer = styled.div`

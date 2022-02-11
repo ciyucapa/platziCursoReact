@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/platziCursoReact/static/css/main.2d3b0d0f.chunk.css",
+    "main.js": "/platziCursoReact/static/js/main.8f10432e.chunk.js",
+    "main.js.map": "/platziCursoReact/static/js/main.8f10432e.chunk.js.map",
+    "runtime-main.js": "/platziCursoReact/static/js/runtime-main.9c7498d0.js",
+    "runtime-main.js.map": "/platziCursoReact/static/js/runtime-main.9c7498d0.js.map",
+    "static/js/2.eef27af3.chunk.js": "/platziCursoReact/static/js/2.eef27af3.chunk.js",
+    "static/js/2.eef27af3.chunk.js.map": "/platziCursoReact/static/js/2.eef27af3.chunk.js.map",
+    "index.html": "/platziCursoReact/index.html",
+    "static/css/main.2d3b0d0f.chunk.css.map": "/platziCursoReact/static/css/main.2d3b0d0f.chunk.css.map",
+    "static/js/2.eef27af3.chunk.js.LICENSE.txt": "/platziCursoReact/static/js/2.eef27af3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c7498d0.js",
+    "static/js/2.eef27af3.chunk.js",
+    "static/css/main.2d3b0d0f.chunk.css",
+    "static/js/main.8f10432e.chunk.js"
+  ]
+}

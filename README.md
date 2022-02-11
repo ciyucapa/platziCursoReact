@@ -24,7 +24,7 @@ Permite al usuario Crear, Editar, y Borrar una tarea.
 ### Instalación
 npm i
 
-### Ejecución 
+### Ejecución del proyecto
 npm start
 
 ### Ejecución de pruebas (tests)
